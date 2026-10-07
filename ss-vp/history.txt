@@ -1,0 +1,394 @@
+    1  ssh root@154.202.119.142
+    2  yum install docker
+    3  cd /opt/
+    4  ll
+    5  docker pull v2fly/v2fly-core:v5.41.0
+    6  mkdir vpn
+    7  cd vpn/
+    8  ll
+    9  vi config.json
+   10  vi start.sh
+   11  sh start.sh 
+   12  docker logs -f v2ray
+   13  vi hk.yaml
+   14  python3 -m http.server 10000
+   15  cd /opt/
+   16  ll
+   17  docker pull copyparty/ac
+   18  mkdir ac
+   19  id
+   20   docker run --rm -it -u 1000 -p 3923:3923 -v /opt/ac:/w -v $PWD/cfgdir:/cfg copyparty/ac
+   21  mkdir cfgdir
+   22   docker run --rm -it -u 1000 -p 3923:3923 -v /opt/ac:/w -v $PWD/cfgdir:/cfg copyparty/ac
+   23  ll
+   24  ll cfgdir/
+   25  rm fv ac/ cfgdir/
+   26  rm fvr ac/ cfgdir/
+   27  rm -fvr ac/ cfgdir/
+   28  docker pull openlistteam/openlist:v4.2.3
+   29  mkdir -p /opt/openlist
+   30  docker run --user $(id -u):$(id -g) -d --restart=restart -v /opt/openlist:/opt/openlist/data -p 5244:5244 -e UMASK=022 --name="openlist" openlistteam/openlist:v4.2.3
+   31  docker run --user $(id -u):$(id -g) -d --restart=Always -v /opt/openlist:/opt/openlist/data -p 5244:5244 -e UMASK=022 --name="openlist" openlistteam/openlist:v4.2.3
+   32  docker ps -a
+   33  cat vpn/start.sh 
+   34  docker run --name openlist --user $(id -u):$(id -g) -d --restart=Always -v /opt/openlist:/opt/openlist/data -p 5244:5244 -e UMASK=022  openlistteam/openlist:v4.2.3
+   35  docker run --name openlist --user $(id -u):$(id -g) -d  -v /opt/openlist:/opt/openlist/data -p 5244:5244 -e UMASK=022  openlistteam/openlist:v4.2.3
+   36  docker ps -a
+   37  docker logs -f openlist
+   38  wget https://github.com/docker/compose/releases/download/v5.3.0/docker-compose-linux-x86_64
+   39  yum install wget
+   40  wget https://github.com/docker/compose/releases/download/v5.3.0/docker-compose-linux-x86_64
+   41  chmod +x docker-compose-linux-x86_64 
+   42  mv -v docker-compose-linux-x86_64  /usr/local/bin/docker-compose
+   43  docker-compose  -v
+   44  ll
+   45  ll openlist/
+   46  docker stop openlist
+   47  docker rm  openlist
+   48  docker images
+   49  ll
+   50  vim docker-compose.yaml
+   51  vi  docker-compose.yaml
+   52  ll
+   53  docker images
+   54  vi docker-compose.yaml 
+   55  docker-compose up -d
+   56  vi docker-compose.yaml 
+   57  docker-compose up -d
+   58  docker images|grep open
+   59  cat docker-compose.yaml 
+   60  which docker
+   61  ls -la /usr/bin/docker 
+   62  ls -la /usr/bin/dockerd
+   63  systemctl status podmand
+   64  systemctl status podman
+   65  systemctl status docker
+   66  sudo systemctl status podman.socket
+   67  dockerd
+   68  ll
+   69  rm -fv docker-compose.yaml 
+   70  docker run --name openlist --user $(id -u):$(id -g) -d -v /opt/openlist:/opt/openlist/data -v /opt/local:/local -p 55244:5244 -e UMASK=022  openlistteam/openlist:v4.2.3
+   71  mkdir local
+   72  docker run --name openlist --user $(id -u):$(id -g) -d -v /opt/openlist:/opt/openlist/data -v /opt/local:/local -p 55244:5244 -e UMASK=022  openlistteam/openlist:v4.2.3
+   73  docker ps -a
+   74  docker logs -f openlist
+   75  docker stop openlist
+   76  docker rm  openlist
+   77  docker run --name openlist --user $(id -u):$(id -g) -d -v /opt/openlist:/opt/openlist/data -v /opt/local:/data -p 55244:5244 -e UMASK=022  openlistteam/openlist:v4.2.3
+   78  docker logs -f openlist
+   79  ll local/
+   80  docker stop openlist
+   81  docker rm  openlist
+   82  ll
+   83  rm -fc openlist/*
+   84  rm -frv openlist/*
+   85  ll local/
+   86  docker run --name openlist --user $(id -u):$(id -g) -d -v /opt/openlist:/opt/openlist/data -v /opt/local:/data -p 55244:5244 -e UMASK=022  openlistteam/openlist:v4.2.3
+   87  docker logs -f openlist
+   88  docker exec -it openlist bash
+   89  docker stop openlist
+   90  docker rm  openlist
+   91  cd /opt/
+   92  ll
+   93  cd vpn/
+   94  ll
+   95  docker ps -a
+   96  sh start.sh 
+   97  docker images
+   98  docker info
+   99  docker -v 
+  100  podman pull --platform linux/arm64 apache/kafka:3.8.1
+  101  docker images
+  102  docker inspect 1d4cc55cb527
+  103  ll
+  104  docker images
+  105  docker save -o  kakfa_3.8.1.tar    docker.io/apache/kafka:3.8.1 
+  106  ll
+  107  docker images
+  108  docker rmi 1d4cc55cb527
+  109  docker images
+  110  docker load -i kakfa_3.8.1.tar 
+  111  docker images
+  112  docker inspect 1d4cc55cb527
+  113  ll
+  114  docker rmi 1d4cc55cb527
+  115  ll
+  116  du -sh *
+  117  python3 -m http.server 10000
+  118  docker images
+  119  podman pull  apache/kafka:3.8.1
+  120  ll
+  121  mv -v kakfa_3.8.1.tar kakfa_3.8.1-arm64.tar
+  122  docker images
+  123  docker save -o  kakfa_3.8.1-amd641.tar    docker.io/apache/kafka:3.8.1 
+  124  ll
+  125  docker inspect 1756e53f57e1|grep -i arch
+  126  docker rmi  1756e53f57e1
+  127  docker load -i kakfa_3.8.1-amd641.tar 
+  128  docker inspect 1756e53f57e1|grep -i arch
+  129  ll
+  130  pwd
+  131  mkdir kafka
+  132  ll
+  133  mv -v *.tar kafka/
+  134  cd kafka/
+  135  python3 -m http.server 10000
+  136  ll
+  137  cd .ssh
+  138  ll
+  139  vim authorized_keys
+  140  vi authorized_keys
+  141  cat -A 
+  142  cd .ssh
+  143  ll
+  144  cat authorized_keys
+  145  cd /etc/ssh
+  146  vim sshd_config
+  147  vi sshd_config
+  148  systemctl restart sshd
+  149  exit
+  150  uname -a
+  151  cd /opt
+  152  ll
+  153  wget https://github.com/shadowsocks/go-shadowsocks2/releases/download/v0.1.5/shadowsocks2-linux.tgz
+  154  ll
+  155  tar zxvf shadowsocks2-linux.tgz 
+  156  ll
+  157  ll vpn
+  158  cat vpn/hk.yaml
+  159  cat vpn/hk.yaml|head
+  160  cat vpn/hk.yaml|head -n 20
+  161  go-shadowsocks2 -s 'ss://AEAD_CHACHA20_POLY1305:your-password@:8488' -verbose
+  162  ll
+  163  shadowsocks2-linux  -s 'ss://AEAD_CHACHA20_POLY1305:your-password@:8488' -verbose
+  164  chmod +x shadowsocks2-linux
+  165  shadowsocks2-linux  -s 'ss://AEAD_CHACHA20_POLY1305:your-password@:8488' -verbose
+  166  ./shadowsocks2-linux  -s 'ss://AEAD_CHACHA20_POLY1305:your-password@:8488' -verbose
+  167  cd /opt/
+  168  ll
+  169  ps -ef |grep shado
+  170  cat vpn/hk.yaml 
+  171  docker ps -a
+  172  ll
+  173  shadowsocks2-linux -s 'ss://AEAD_CHACHA20_POLY1305:7966c347-b5f5-46a0-b720-ef2d76e1836a@:38488' -verbose
+  174  /opt/shadowsocks2-linux -s 'ss://AEAD_CHACHA20_POLY1305:7966c347-b5f5-46a0-b720-ef2d76e1836a@:38488' -verbose
+  175  ll vpn/
+  176  vi start-ss.sh
+  177  sh -x start-ss.sh 
+  178  ll
+  179  cat ss.log 
+  180  sh -x start-ss.sh 
+  181  ps -ef |grep shadowsocks2-linux
+  182  sh -x start-ss.sh 
+  183  ps -ef |grep shadowsocks2-linux
+  184  APP_NAME="shadowsocks2-linux"
+  185  pgrep -x "$APP_NAME"
+  186  pgrep -x shadowsocks2-linux
+  187  ps -ef |grep shadowsocks2-linux
+  188  pgrep -x sshd
+  189  pgrep -l  shadowsocks2-linux
+  190  kill -9 55009 55023 55037
+  191  ps -ef |grep shadowsocks2-linu
+  192  sh -x start-ss.sh 
+  193  ps -ef |grep shadowsocks2-linu
+  194  pgrep -f "shadowsocks2-linux"
+  195  vi start-ss.sh 
+  196  ps -ef |grep shadowsocks2-linu
+  197  sh -x start-ss.sh 
+  198  tail -f ss.log 
+  199  ll
+  200  cd vpn/
+  201  ll
+  202  cat hk.yaml 
+  203  vi hk.yaml 
+  204  ll
+  205  python3 -m http.server 10000
+  206  cd ..
+  207  tail -f ss.log 
+  208  ll
+  209  ll vpn/
+  210  ll
+  211  sh -x start-ss.sh 
+  212  tail -f ss.log 
+  213  ll
+  214  docker pull swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/kubesphere/redis:7.2.4-alpine-linuxarm64
+  215  docker images
+  216  docker save -o redis-7.2.4-arm64.tar  swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/kubesphere/redis:7.2.4-alpine-linuxarm64
+  217  docker images
+  218  ll
+  219  df -Th 
+  220  history
+  221  docker pull projecthami/volcano-vgpu-device-plugin:v1.12.0
+  222  docker images
+  223  nerdctl pull volcanosh/vc-scheduler:v1.9.0
+  224  docker  pull volcanosh/vc-scheduler:v1.9.0
+  225  docker images
+  226  docker  pull volcanosh/vc-scheduler:v1.9.0
+  227  docker  pull volcanosh/vc-controller-manager:v1.9.0
+  228  docker images |grep volcan
+  229  docker save -o volcano-v1.9.0.tar docker.io/volcanosh/vc-scheduler:v1.9.0 docker.io/volcanosh/vc-controller-manager:v1.9.0
+  230  ll
+  231  python3 -m http.server 10000
+  232  docker pull volcanosh/vc-webhook-manager:v1.9.0
+  233  rm -fv volcano-v1.9.0.tar 
+  234  docker save -o volcano-v1.9.0.tar docker.io/volcanosh/vc-scheduler:v1.9.0 docker.io/volcanosh/vc-controller-manager:v1.9.0 docker.io/volcanosh/vc-webhook-manager:v1.9.0
+  235  python3 -m http.server 10000
+  236  netstat -antlp|grep 10000
+  237  ss -antlp|grep 10000
+  238  ps -ef |grep python
+  239  docker pull volcanosh/vc-webhook-manager:v1.9.1
+  240  docker run -it --rm --entrypoint /bin/sh   volcanosh/vc-webhook-manager:v1.9.1
+  241  docker pull volcanosh/vc-controller-manager:v1.9.1
+  242  docker pull volcanosh/vc-scheduler:v1.9.1
+  243  history |grep save
+  244  docker save -o volcano-v1.9.1.tar docker.io/volcanosh/vc-scheduler:v1.9.1 docker.io/volcanosh/vc-controller-manager:v1.9.1 docker.io/volcanosh/vc-webhook-manager:v1.9.1
+  245  ll
+  246  rm -fv volcano-v1.9.0.tar 
+  247  ll
+  248  python3 -m http.server 10000
+  249  docker run -it --rm --entrypoint /bin/sh   volcanosh/vc-webhook-manager:v1.9.1
+  250  docker images |grep volcanosh/vc-webhook-manager
+  251  docker save -o vc-webhook-manager-v1.9.1.tar volcanosh/vc-webhook-manager:v1.9.1
+  252  python3 -m http.server 10000
+  253  docker images |grep hami
+  254  docker pull docker.io/liangjw/kube-webhook-certgen:v1.1.1
+  255  docker save -o kube-webhook-certgen-v1.1.1.tar docker.io/liangjw/kube-webhook-certgen:v1.1.1
+  256  python3 -m http.server 10000
+  257  ps -ef |grep python
+  258  kill -9 249344
+  259  python3 -m http.server 10000
+  260  docker pull docker.io/projecthami/hami:v2.10.0
+  261  docker save -o hami-v2.10.0.tar    docker.io/projecthami/hami:v2.10.0
+  262  ll
+  263  python3 -m http.server 10000
+  264  docker images |grep ray
+  265  ll
+  266  docker pull rayproject/ray:2.9.0
+  267  docker images |grep ray
+  268  ps -ef |grep python
+  269  cd /opt
+  270  ll
+  271  sh -x start-ss.sh
+  272  cd vpn
+  273  ll
+  274  sh start.sh
+  275  cd /opt
+  276  ll
+  277  sh -x start -ss.sh
+  278  sh -x start-ss.sh
+  279  ll
+  280  cd vpn
+  281  ll
+  282  sh -x start.sh
+  283  docker ps
+  284  docker logs -f v2ray
+  285  up
+  286  top
+  287  cd /opt
+  288  cd v2ray
+  289  ll
+  290  cd vpn
+  291  ll
+  292  sh -x start.sh
+  293  systemctl status sshd
+  294  sudo pam_tally2 -u root
+  295  sudo faillock
+  296  sudo faillock --user root --reset
+  297  journalctl -xe -u sshd -f
+  298  systemctl stop sshd
+  299  cd /opt/vpn/
+  300  ll
+  301  docker ps -a
+  302  sh -x start.sh 
+  303  docker ps -a
+  304  docker logs -f v2ray --tail=20
+  305  ip a
+  306  nc -uv 10,0.78.2 30086
+  307  yum install nc
+  308  ping  1.1.1.1
+  309  cat /etc/redhat-release 
+  310  dnf repolist
+  311  ll /etc/yum.repos.d/
+  312  cd /etc/
+  313  ll
+  314  mv -v yum.repos.d/ yum.repos.d.bak
+  315  dnf reinstall -y centos-stream-repos
+  316  cp yum.repos.d.bak/ yum.repos.d
+  317  ll yum.repos.d
+  318  cp -rv yum.repos.d.bak  yum.repos.d
+  319  ll
+  320  dnf reinstall -y centos-stream-repos
+  321  dnf install -y nmap-ncat
+  322  nc -uv 10,0.78.2 30086
+  323  ip a 
+  324  nc -uv 10.0.78.2 30086
+  325  ss -tlnp
+  326  sysctl net.ipv4.ip_forward
+  327  iptables -t nat -L DOCKER -n
+  328  iptables -L FORWARD -n
+  329  systemctl stop firewalld
+  330  docker ps -a
+  331  podman ps -a
+  332  systemctl restart sshd
+  333  journalctl -xe -u sshd -f 
+  334  vim /etc/ssh/sshd_config
+  335  vi  /etc/ssh/sshd_config
+  336  systemctl restart sshd
+  337  ss -tunlp
+  338  journalctl -xe -u sshd -f  --tail=20
+  339  journalctl -xe -u sshd -f  --tail 20
+  340  journalctl -xe -u sshd -f  -n  20
+  341  systemctl status firewalld
+  342  getenforce
+  343  cd /opt/
+  344  ll
+  345  sh -x start-ss.sh 
+  346  ss -tulp
+  347  getselinux
+  348  getenforce
+  349  ll
+  350  ll vpn/
+  351  cd vpn/
+  352  docker ps -a
+  353  docker save -o v2ray-v5.41.0.tar docker.io/v2fly/v2fly-core:v5.41.0
+  354  ll
+  355  du -sh *
+  356  cd ..
+  357  ll
+  358  docker stop v2ray
+  359  docker rm  v2ray
+  360  ll
+  361  docker ps -a
+  362  cat start-ss.sh 
+  363  history |grep wget 
+  364  ll
+  365  cd vpn/
+  366  ll
+  367  cd ..
+  368  ll
+  369  mv -v vpn v2ray
+  370  ll
+  371  mkdir ss
+  372  cp start-ss.sh ss
+  373  ll
+  374  cp shadowsocks2-linux.tgz  ss
+  375  ps -ef |grep shadow
+  376  kill -9 65258
+  377  ps -ef |grep shadow
+  378  ll
+  379  ll ss
+  380  mkdir ss-vp
+  381  mv -v ss ss-vp/
+  382  ll ss-vp/
+  383  mv -v v2ray/ ss-vp/
+  384  ll
+  385  tree ss-vp
+  386  dnf install tree
+  387  ll
+  388  du -sh ss-vp
+  389  tree ss-vp/
+  390  history > hisotry
+  391  vi hisotry 
+  392  ll
+  393  mv -v history ss-vp/history.txt
+  394  history > hisotry.txt
